@@ -63,17 +63,17 @@
     <Compile Include="Core\Arrays\InputOutputArray.cs" />
     <Compile Include="Core\Arrays\IOutputArray.cs" />
     <Compile Include="Core\Arrays\OutputArray.cs" />
-    <Compile Include="Core\Objects\CvString.cs" />
+    <Compile Include="Base\Objects\CvString.cs" />
     <Compile Include="Core\Arrays\EmptyArrayT.cs" />
     <Compile Include="Core\Arrays\InputArray.cs" />
-    <Compile Include="Core\PInvoke\CvInvoke.cs" />
-    <Compile Include="Core\Objects\DisposableObject.cs" />
-    <Compile Include="Core\PInvoke\CvInvokeArrays.cs" />
-    <Compile Include="Core\PInvoke\CvInvokeConversion.cs" />
-    <Compile Include="Core\PInvoke\CvInvokeImaging.cs" />
-    <Compile Include="Core\PInvoke\CvInvokeMat.cs" />
-    <Compile Include="Core\PInvoke\NTInvoke.cs" />
-    <Compile Include="Core\Objects\UnmanagedObject.cs" />
+    <Compile Include="Base\PInvoke\CvInvoke.cs" />
+    <Compile Include="Base\Objects\DisposableObject.cs" />
+    <Compile Include="Base\PInvoke\CvInvokeArrays.cs" />
+    <Compile Include="Base\PInvoke\CvInvokeConversion.cs" />
+    <Compile Include="Base\PInvoke\CvInvokeImaging.cs" />
+    <Compile Include="Base\PInvoke\CvInvokeMat.cs" />
+    <Compile Include="Base\PInvoke\NTInvoke.cs" />
+    <Compile Include="Base\Objects\UnmanagedObject.cs" />
     <Compile Include="Structures\Color32.cs" />
     <Compile Include="Structures\Point.cs" />
     <Compile Include="Structures\PointF.cs" />
@@ -82,8 +82,8 @@
     <Compile Include="Enumerations\DepthType.cs" />
     <Compile Include="Enumerations\IplDepth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\Objects\AbstractVector.cs" />
-    <Compile Include="Core\Delegates.cs" />
+    <Compile Include="Base\Objects\AbstractVector.cs" />
+    <Compile Include="Base\Delegates.cs" />
     <Compile Include="Vectors\VectorOfByte.cs" />
     <Compile Include="Vectors\VectorOfInt.cs" />
   </ItemGroup>
@@ -94,9 +94,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
