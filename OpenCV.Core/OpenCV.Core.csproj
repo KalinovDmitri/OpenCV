@@ -57,15 +57,20 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Core\Interfaces\IInputArray.cs" />
+    <Compile Include="Core\Arrays\IInputArray.cs" />
+    <Compile Include="Core\Arrays\IInputOutputArray.cs" />
+    <Compile Include="Core\Arrays\InputOutputArray.cs" />
+    <Compile Include="Core\Arrays\IOutputArray.cs" />
+    <Compile Include="Core\Arrays\OutputArray.cs" />
     <Compile Include="Core\Objects\CvString.cs" />
-    <Compile Include="Core\Objects\EmptyArrayT.cs" />
-    <Compile Include="Core\Objects\InputArray.cs" />
+    <Compile Include="Core\Arrays\EmptyArrayT.cs" />
+    <Compile Include="Core\Arrays\InputArray.cs" />
     <Compile Include="Core\PInvoke\CvInvoke.cs" />
     <Compile Include="Core\Objects\DisposableObject.cs" />
     <Compile Include="Core\PInvoke\CvInvokeArrays.cs" />
     <Compile Include="Core\PInvoke\CvInvokeConversion.cs" />
     <Compile Include="Core\PInvoke\CvInvokeImaging.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeMat.cs" />
     <Compile Include="Core\PInvoke\NTInvoke.cs" />
     <Compile Include="Core\Objects\UnmanagedObject.cs" />
     <Compile Include="Structures\Color32.cs" />
@@ -88,7 +93,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Core\Interfaces\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

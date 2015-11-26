@@ -28,7 +28,7 @@ namespace OpenCV.Core
         }
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
-        private static extern void cveImencode(IntPtr ext, IntPtr image, IntPtr buffer, IntPtr parameters);
+        internal static extern void cveImencode(IntPtr ext, IntPtr image, IntPtr buffer, IntPtr parameters);
         #endregion
     }
 }

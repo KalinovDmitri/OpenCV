@@ -3,13 +3,28 @@ using System.Runtime.InteropServices;
 
 namespace OpenCV.Core
 {
+    using Enumerations;
+    using Structures;
+
     public static partial class CvInvoke
     {
-        #region Arrays
+        #region Input array
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.U1)]
         internal static extern bool cveInputArrayIsEmpty(IntPtr arrayPtr);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern int cveInputArrayGetChannels(IntPtr arrayPtr, int idx);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern DepthType cveInputArrayGetDepth(IntPtr arrayPtr, int idx);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern void cveInputArrayGetSize(IntPtr arrayPtr, ref Size size, int idx);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern void cveInputArrayRelease(ref IntPtr arrayPtr);
         #endregion
     }
 }
