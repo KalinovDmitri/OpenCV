@@ -74,7 +74,6 @@
     <Compile Include="Base\PInvoke\CvInvokeMat.cs" />
     <Compile Include="Base\PInvoke\NTInvoke.cs" />
     <Compile Include="Base\Objects\UnmanagedObject.cs" />
-    <Compile Include="Core\Images\IImage.cs" />
     <Compile Include="Base\Structures\Color32.cs" />
     <Compile Include="Base\Structures\Point.cs" />
     <Compile Include="Base\Structures\PointF.cs" />
@@ -84,7 +83,7 @@
     <Compile Include="Enumerations\IplDepth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\Objects\AbstractVector.cs" />
-    <Compile Include="Base\Delegates.cs" />
+    <Compile Include="Base\Objects\Delegates.cs" />
     <Compile Include="Vectors\VectorOfByte.cs" />
     <Compile Include="Vectors\VectorOfInt.cs" />
   </ItemGroup>

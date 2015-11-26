@@ -1,6 +1,8 @@
 ﻿using System;
 
-namespace OpenCV.Core
+using OpenCV.Core;
+
+namespace OpenCV.Imaging
 {
     /// <summary>
     /// Представляет изображение

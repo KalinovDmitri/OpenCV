@@ -56,6 +56,8 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Imaging.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Imaging\IImage.cs" />
+    <Compile Include="Imaging\Mat.cs" />
     <Compile Include="Imaging\PresentationImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
