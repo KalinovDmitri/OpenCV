@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCV.Core
+namespace OpenCV.Core.Structures
 {
     public struct SizeF
     {

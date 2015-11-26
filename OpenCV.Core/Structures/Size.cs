@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace OpenCV.Core
+namespace OpenCV.Core.Structures
 {
     [Serializable, ComVisible(true)]
     public struct Size
@@ -44,6 +44,14 @@ namespace OpenCV.Core
         public Size(int width, int height)
         {
             this.width = width; this.height = height;
+        }
+        #endregion
+
+        #region Methods
+
+        public override string ToString()
+        {
+            return string.Format("{{Width = {0}, Height = {1}}}", width, height);
         }
         #endregion
     }
