@@ -6,17 +6,9 @@ namespace OpenCV.Core
     using Enumerations;
     using Structures;
 
-    /// <summary>
-    /// Предоставляет точку входа для вызова неуправляемых функций библиотеки cvextern.dll
-    /// </summary>
-    public static class CvInvoke
+    public static partial class CvInvoke
     {
-        #region Constants
-
-        public const string ExternLibrary = "cvextern.dll";
-        #endregion
-
-        #region Imaging
+        #region Imaging fuctions import
 
         public static IntPtr cvCreateImageHeader(Size size, IplDepth depth, int channels)
         {
@@ -39,6 +31,9 @@ namespace OpenCV.Core
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl, EntryPoint = "cveReleaseImageHeader")]
         public static extern void cvReleaseImageHeader(ref IntPtr imagePtr);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl, EntryPoint = "cveReleaseMat")]
+        public static extern void cvReleaseMat(ref IntPtr mat);
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr cveInitImageHeader(IntPtr image, ref Size size, IplDepth depth, int channels, int origin, int align);

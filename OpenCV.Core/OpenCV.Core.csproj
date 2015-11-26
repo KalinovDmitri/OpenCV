@@ -44,6 +44,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>..\Bin\Release\</OutputPath>
@@ -56,9 +57,17 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Core\CvInvoke.cs" />
-    <Compile Include="Core\DisposableObject.cs" />
-    <Compile Include="Core\UnmanagedObject.cs" />
+    <Compile Include="Core\Interfaces\IInputArray.cs" />
+    <Compile Include="Core\Objects\CvString.cs" />
+    <Compile Include="Core\Objects\EmptyArrayT.cs" />
+    <Compile Include="Core\Objects\InputArray.cs" />
+    <Compile Include="Core\PInvoke\CvInvoke.cs" />
+    <Compile Include="Core\Objects\DisposableObject.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeArrays.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeConversion.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeImaging.cs" />
+    <Compile Include="Core\PInvoke\NTInvoke.cs" />
+    <Compile Include="Core\Objects\UnmanagedObject.cs" />
     <Compile Include="Structures\Color32.cs" />
     <Compile Include="Structures\Point.cs" />
     <Compile Include="Structures\PointF.cs" />
@@ -67,12 +76,17 @@
     <Compile Include="Enumerations\DepthType.cs" />
     <Compile Include="Enumerations\IplDepth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Objects\AbstractVector.cs" />
+    <Compile Include="Core\Delegates.cs" />
+    <Compile Include="Vectors\VectorOfByte.cs" />
+    <Compile Include="Vectors\VectorOfInt.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

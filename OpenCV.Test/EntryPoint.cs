@@ -4,31 +4,33 @@ using System.Runtime.InteropServices;
 using OpenCV.Core;
 using OpenCV.Core.Enumerations;
 using OpenCV.Core.Structures;
+using OpenCV.Core.Vectors;
 
 namespace OpenCV.Test
 {
     internal class EntryPoint
     {
-        internal static void Main(string[] args)
+        internal unsafe static void Main(string[] args)
         {
             IntPtr imagePtr = IntPtr.Zero, dataPtr = IntPtr.Zero;
             try
             {
-                int step = 0; Size imageSize = new Size(256, 256);
-
-                imagePtr = CvInvoke.cvCreateImageHeader(imageSize, IplDepth.IplDepth_8U, 4);
-
+                /*imagePtr = CvInvoke.cvCreateImageHeader(new Size(256, 256), IplDepth.IplDepth_8U, 4);
                 dataPtr = CvInvoke.cvCreateMat(256, 256, DepthType.Cv8U);
 
                 CvInvoke.cvSetData(imagePtr, dataPtr, 1024);
 
-                Size rawSize;
+                NTInvoke.SetUnmanagedMemory(dataPtr, 0, 262144);*/
 
-                IntPtr rawDataPtr;
+                using (CvString @obj = new CvString(".bmp"))
+                {
+                    Console.WriteLine(@obj.ToString());
+                }
 
-                CvInvoke.cvGetRawData(imagePtr, out rawDataPtr, out step, out rawSize);
-                
-                Console.WriteLine("\tImage ptr = {0}, data ptr = {1}, step = {2}, size = {3}", imagePtr, dataPtr, step, rawSize);
+                /*using (CvString wrapper = new CvString())
+                {
+                    Console.WriteLine(wrapper.ToString());
+                }*/
             }
             catch (Exception exc)
             {
@@ -36,7 +38,10 @@ namespace OpenCV.Test
             }
             finally
             {
-                CvInvoke.cvReleaseImageHeader(ref imagePtr);
+                /*CvInvoke.cvReleaseMat(ref dataPtr);
+                CvInvoke.cvReleaseImageHeader(ref imagePtr);*/
+
+                Console.WriteLine("\tData released succesfully.");
                 Console.ReadKey(true);
             }
         }

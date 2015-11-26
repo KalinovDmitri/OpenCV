@@ -56,13 +56,16 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Imaging.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Imaging\PresentationImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="mscorlib" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenCV.Core\OpenCV.Core.csproj">
