@@ -3,7 +3,7 @@
 namespace OpenCV.Core
 {
     /// <summary>
-    /// Представляет абстрактную оболочку неуправляемого класса vector
+    /// Представляет абстрактную оболочку неуправляемого класса <see cref="T:vector&lt;T&gt;"/>
     /// </summary>
     public abstract class AbstractVector : UnmanagedObject, IInputArray
     {

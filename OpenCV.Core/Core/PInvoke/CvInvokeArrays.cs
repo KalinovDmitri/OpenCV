@@ -26,5 +26,29 @@ namespace OpenCV.Core
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         internal static extern void cveInputArrayRelease(ref IntPtr arrayPtr);
         #endregion
+
+        #region Output array
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.U1)]
+        internal static extern bool cveOutputArrayFixedSize(IntPtr arrayPtr);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.U1)]
+        internal static extern bool cveOutputArrayFixedType(IntPtr arrayPtr);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.U1)]
+        internal static extern bool cveOutputArrayNeeded(IntPtr arrayPtr);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern void cveOutputArrayRelease(ref IntPtr arrayPtr);
+        #endregion
+
+        #region Input output array
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern void cveInputOutputArrayRelease(ref IntPtr arr);
+        #endregion
     }
 }

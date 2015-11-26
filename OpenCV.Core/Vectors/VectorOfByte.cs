@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace OpenCV.Core.Vectors
 {
     /// <summary>
-    /// Представляет вектор типа byte
+    /// Представляет управляемую оболочку класса <see cref="T:vector&lt;byte&gt;"/>
     /// </summary>
     [Serializable, DebuggerTypeProxy(typeof(VectorOfByte.DebuggerProxy))]
     public class VectorOfByte : AbstractVector

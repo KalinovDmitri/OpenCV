@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 
 namespace OpenCV.Core
 {
@@ -56,10 +55,10 @@ namespace OpenCV.Core
             return result;
         }
         /// <summary>
-        /// 
+        /// Возвращает размер данного экземпляра относительно указанного индекса
         /// </summary>
-        /// <param name="idx"></param>
-        /// <returns></returns>
+        /// <param name="idx">Значение <see cref="int"/>, определяющее анализируемый индекс. Этот параметр является необязательным.</param>
+        /// <returns>Структура <see cref="Size"/>, определяющая размер данного массива относительно указанного индекса</returns>
         public Size GetSize(int idx = -1)
         {
             Size result = default(Size);
@@ -70,9 +69,9 @@ namespace OpenCV.Core
             return result;
         }
         /// <summary>
-        /// 
+        /// Возвращает значение, определяющее, является ли данный экземпляр массива пустым
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Значение <see cref="bool"/>, определяющее, пуст ли данный массив</returns>
         public bool IsEmpty()
         {
             return InnerPointer == IntPtr.Zero || CvInvoke.cveInputArrayIsEmpty(InnerPointer);

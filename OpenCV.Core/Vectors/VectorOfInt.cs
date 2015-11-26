@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace OpenCV.Core.Vectors
 {
     /// <summary>
-    /// Представляет вектор типа int
+    /// Представляет управляемую оболочку класса <see cref="T:vector&lt;int&gt;"/>
     /// </summary>
     public class VectorOfInt : AbstractVector
     {

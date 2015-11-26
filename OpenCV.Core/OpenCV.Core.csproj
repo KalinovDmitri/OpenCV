@@ -57,6 +57,7 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Core\Arrays\CvArray.cs" />
     <Compile Include="Core\Arrays\IInputArray.cs" />
     <Compile Include="Core\Arrays\IInputOutputArray.cs" />
     <Compile Include="Core\Arrays\InputOutputArray.cs" />
