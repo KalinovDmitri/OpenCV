@@ -29,5 +29,8 @@ namespace OpenCV.Core
         /// </summary>
         protected internal CvArray() : base() { }
         #endregion
+
+        #region Class methods
+        #endregion
     }
 }

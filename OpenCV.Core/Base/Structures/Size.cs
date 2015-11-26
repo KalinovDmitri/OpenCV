@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace OpenCV.Core.Structures
+namespace OpenCV.Core
 {
     [Serializable, ComVisible(true)]
     public struct Size

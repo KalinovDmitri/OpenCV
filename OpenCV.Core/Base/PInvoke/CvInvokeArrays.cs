@@ -4,7 +4,6 @@ using System.Runtime.InteropServices;
 namespace OpenCV.Core
 {
     using Enumerations;
-    using Structures;
 
     public static partial class CvInvoke
     {

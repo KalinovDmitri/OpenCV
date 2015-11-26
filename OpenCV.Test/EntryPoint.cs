@@ -5,7 +5,6 @@ using System.Windows.Media.Imaging;
 
 using OpenCV.Core;
 using OpenCV.Core.Enumerations;
-using OpenCV.Core.Structures;
 using OpenCV.Core.Vectors;
 
 namespace OpenCV.Test
@@ -15,10 +14,16 @@ namespace OpenCV.Test
         [STAThread]
         internal unsafe static void Main(string[] args)
         {
-            IntPtr imagePtr = IntPtr.Zero, dataPtr = IntPtr.Zero;
+            //IntPtr imagePtr = IntPtr.Zero, dataPtr = IntPtr.Zero;
             try
             {
-                imagePtr = CvInvoke.cvCreateImageHeader(new Size(256, 256), IplDepth.IplDepth_8U, 4);
+                int size = CvArray<byte>.ElementSize;
+
+                InputArray array = EmptyArray<InputArray>.Value;
+
+                Console.WriteLine("\tArray element size is {0}", size);
+
+                /*imagePtr = CvInvoke.cvCreateImageHeader(new Size(256, 256), IplDepth.IplDepth_8U, 4);
                 dataPtr = CvInvoke.cveMatCreate();
 
                 int matType = (int)((DepthType.Cv8U & (DepthType)7) + (4 - 1 << 3));
@@ -32,7 +37,7 @@ namespace OpenCV.Test
                 using (InputArray array = new InputArray(arrayPtr))
                 {
 
-                }
+                }*/
             }
             catch (Exception exc)
             {
@@ -40,7 +45,7 @@ namespace OpenCV.Test
             }
             finally
             {
-                CvInvoke.cvReleaseImageHeader(ref imagePtr);
+                //CvInvoke.cvReleaseImageHeader(ref imagePtr);
 
                 Console.WriteLine("\tData released succesfully.");
                 Console.ReadKey(true);

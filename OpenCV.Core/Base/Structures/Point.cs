@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace OpenCV.Core.Structures
+namespace OpenCV.Core
 {
     /// <summary>
     /// Представляет упорядоченную пару целых чисел - координат X и Y, определяющих точку на двумерной плоскости

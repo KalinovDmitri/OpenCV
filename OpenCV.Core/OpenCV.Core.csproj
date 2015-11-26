@@ -74,11 +74,12 @@
     <Compile Include="Base\PInvoke\CvInvokeMat.cs" />
     <Compile Include="Base\PInvoke\NTInvoke.cs" />
     <Compile Include="Base\Objects\UnmanagedObject.cs" />
-    <Compile Include="Structures\Color32.cs" />
-    <Compile Include="Structures\Point.cs" />
-    <Compile Include="Structures\PointF.cs" />
-    <Compile Include="Structures\Size.cs" />
-    <Compile Include="Structures\SizeF.cs" />
+    <Compile Include="Core\Images\IImage.cs" />
+    <Compile Include="Base\Structures\Color32.cs" />
+    <Compile Include="Base\Structures\Point.cs" />
+    <Compile Include="Base\Structures\PointF.cs" />
+    <Compile Include="Base\Structures\Size.cs" />
+    <Compile Include="Base\Structures\SizeF.cs" />
     <Compile Include="Enumerations\DepthType.cs" />
     <Compile Include="Enumerations\IplDepth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

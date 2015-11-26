@@ -3,7 +3,6 @@ using System.Windows.Media;
 
 using OpenCV.Core;
 using OpenCV.Core.Enumerations;
-using OpenCV.Core.Structures;
 
 namespace OpenCV.Imaging
 {
