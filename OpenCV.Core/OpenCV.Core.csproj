@@ -57,35 +57,35 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Core\Arrays\CvArray.cs" />
-    <Compile Include="Core\Arrays\IInputArray.cs" />
-    <Compile Include="Core\Arrays\IInputOutputArray.cs" />
-    <Compile Include="Core\Arrays\InputOutputArray.cs" />
-    <Compile Include="Core\Arrays\IOutputArray.cs" />
-    <Compile Include="Core\Arrays\OutputArray.cs" />
-    <Compile Include="Base\Objects\CvString.cs" />
-    <Compile Include="Core\Arrays\EmptyArrayT.cs" />
-    <Compile Include="Core\Arrays\InputArray.cs" />
-    <Compile Include="Base\PInvoke\CvInvoke.cs" />
-    <Compile Include="Base\Objects\DisposableObject.cs" />
-    <Compile Include="Base\PInvoke\CvInvokeArrays.cs" />
-    <Compile Include="Base\PInvoke\CvInvokeConversion.cs" />
-    <Compile Include="Base\PInvoke\CvInvokeImaging.cs" />
-    <Compile Include="Base\PInvoke\CvInvokeMat.cs" />
-    <Compile Include="Base\PInvoke\NTInvoke.cs" />
-    <Compile Include="Base\Objects\UnmanagedObject.cs" />
-    <Compile Include="Base\Structures\Color32.cs" />
-    <Compile Include="Base\Structures\Point.cs" />
-    <Compile Include="Base\Structures\PointF.cs" />
-    <Compile Include="Base\Structures\Size.cs" />
-    <Compile Include="Base\Structures\SizeF.cs" />
-    <Compile Include="Enumerations\DepthType.cs" />
-    <Compile Include="Enumerations\IplDepth.cs" />
+    <Compile Include="Core\CvArrays\CvArray.cs" />
+    <Compile Include="Core\CvArrays\IInputArray.cs" />
+    <Compile Include="Core\CvArrays\IInputOutputArray.cs" />
+    <Compile Include="Core\CvArrays\InputOutputArray.cs" />
+    <Compile Include="Core\CvArrays\IOutputArray.cs" />
+    <Compile Include="Core\CvArrays\OutputArray.cs" />
+    <Compile Include="Core\Base\CvString.cs" />
+    <Compile Include="Core\CvArrays\EmptyArrayT.cs" />
+    <Compile Include="Core\CvArrays\InputArray.cs" />
+    <Compile Include="Core\PInvoke\CvInvoke.cs" />
+    <Compile Include="Core\Base\DisposableObject.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeArrays.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeConversion.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeImaging.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeMat.cs" />
+    <Compile Include="Core\PInvoke\NTInvoke.cs" />
+    <Compile Include="Core\Base\UnmanagedObject.cs" />
+    <Compile Include="Core\Structures\Color32.cs" />
+    <Compile Include="Core\Structures\Point.cs" />
+    <Compile Include="Core\Structures\PointF.cs" />
+    <Compile Include="Core\Structures\Size.cs" />
+    <Compile Include="Core\Structures\SizeF.cs" />
+    <Compile Include="Core\Enumerations\DepthType.cs" />
+    <Compile Include="Core\Enumerations\IplDepth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Base\Objects\AbstractVector.cs" />
-    <Compile Include="Base\Objects\Delegates.cs" />
-    <Compile Include="Vectors\VectorOfByte.cs" />
-    <Compile Include="Vectors\VectorOfInt.cs" />
+    <Compile Include="Core\Base\AbstractVector.cs" />
+    <Compile Include="Core\Base\Delegates.cs" />
+    <Compile Include="Core\Vectors\VectorOfByte.cs" />
+    <Compile Include="Core\Vectors\VectorOfInt.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
