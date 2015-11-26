@@ -1,11 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
-using OpenCV.Core;
-using OpenCV.Core.Enumerations;
-using OpenCV.Core.Vectors;
+using OpenCV.Imaging;
 
 namespace OpenCV.Test
 {
@@ -14,30 +11,12 @@ namespace OpenCV.Test
         [STAThread]
         internal unsafe static void Main(string[] args)
         {
-            //IntPtr imagePtr = IntPtr.Zero, dataPtr = IntPtr.Zero;
             try
             {
-                int size = CvArray<byte>.ElementSize;
-
-                InputArray array = EmptyArray<InputArray>.Value;
-
-                Console.WriteLine("\tArray element size is {0}", size);
-
-                /*imagePtr = CvInvoke.cvCreateImageHeader(new Size(256, 256), IplDepth.IplDepth_8U, 4);
-                dataPtr = CvInvoke.cveMatCreate();
-
-                int matType = (int)((DepthType.Cv8U & (DepthType)7) + (4 - 1 << 3));
-
-                CvInvoke.cveMatCreateData(dataPtr, 256, 256, matType);
-                
-                CvInvoke.cvSetData(imagePtr, dataPtr, 1024);
-
-                IntPtr arrayPtr = CvInvoke.cveInputArrayFromMat(dataPtr);
-
-                using (InputArray array = new InputArray(arrayPtr))
+                using (PresentationImage image = new PresentationImage(256, 256))
                 {
-
-                }*/
+                    image.SetPixel(10, 10, Colors.Red);
+                }
             }
             catch (Exception exc)
             {

@@ -3,7 +3,6 @@
 namespace OpenCV.Core
 {
     using Enumerations;
-    using Structures;
 
     /// <summary>
     /// Представляет прокси - класс для передачи массивов с доступом только для чтения в функции OpenCV

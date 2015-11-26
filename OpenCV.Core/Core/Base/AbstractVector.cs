@@ -39,7 +39,7 @@ namespace OpenCV.Core
         /// <summary>
         /// Возвращает начальный адрес неуправляемого вектора
         /// </summary>
-        public IntPtr StartAddress => GetStartAddress(InnerPointer);
+        public IntPtr StartAddress => (GetStartAddress != null) ? GetStartAddress(InnerPointer) : IntPtr.Zero;
         #endregion
 
         #region Constructors
@@ -50,7 +50,8 @@ namespace OpenCV.Core
         /// <param name="needDispose">Значение <see cref="bool"/>, определяющее необходимость автоматического освобождения ресурсов</param>
         protected internal AbstractVector(IntPtr vectorPtr, bool needDispose)
         {
-            InnerPointer = vectorPtr; NeedDispose = needDispose;
+            InnerPointer = vectorPtr;
+            NeedDispose = needDispose;
 
             FinalizeCreation();
         }

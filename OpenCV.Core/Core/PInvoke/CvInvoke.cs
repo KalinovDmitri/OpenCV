@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 
 namespace OpenCV.Core
 {
+    using Enumerations;
+
     /// <summary>
     /// Предоставляет точку входа для вызова неуправляемых функций библиотеки cvextern.dll
     /// </summary>
@@ -11,6 +12,14 @@ namespace OpenCV.Core
         #region Constants
 
         public const string ExternLibrary = "cvextern.dll";
+        #endregion
+
+        #region Base methods
+
+        public static int MakeType(DepthType depth, int channels)
+        {
+            return (int)((depth & (DepthType)7) + (channels - 1 << 3));
+        }
         #endregion
     }
 }
