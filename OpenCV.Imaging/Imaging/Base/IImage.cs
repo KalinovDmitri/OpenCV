@@ -1,7 +1,5 @@
 ﻿using System;
 
-using OpenCV.Core;
-
 namespace OpenCV.Imaging
 {
     /// <summary>

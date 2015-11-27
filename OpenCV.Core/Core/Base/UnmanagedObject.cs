@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCV.Core
+namespace OpenCV
 {
     /// <summary>
     /// Представляет абстрактную оболочку неуправляемого объекта, предоставляя к нему доступ через указатель <see cref="IntPtr"/>

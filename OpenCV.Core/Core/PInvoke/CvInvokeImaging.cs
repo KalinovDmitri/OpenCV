@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace OpenCV.Core
+namespace OpenCV
 {
     using Enumerations;
 

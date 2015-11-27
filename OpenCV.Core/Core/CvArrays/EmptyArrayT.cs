@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCV.Core
+namespace OpenCV
 {
     /// <summary>
     /// Представляет статический класс для инициализации пустых массивов при передаче ссылки null в неуправляемые функции OpenCV

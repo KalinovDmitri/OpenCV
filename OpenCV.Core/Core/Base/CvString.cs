@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace OpenCV.Core
+namespace OpenCV
 {
     /// <summary>
     /// Представляет управляемую оболочку класса cv:String. Данный класс поддерживает символы в кодировке UTF-8.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace OpenCV.Core
+namespace OpenCV
 {
     /// <summary>
     /// Предоставляет точку входа для вызова неуправляемых функций библиотеки ntdll.dll

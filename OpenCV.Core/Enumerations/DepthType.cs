@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCV.Core.Enumerations
+namespace OpenCV.Enumerations
 {
     /// <summary>
 	/// Предоставляет перечислимые константы, определяющие глубину инициализируемой матрицы

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCV.Core
+namespace OpenCV
 {
     /// <summary>
     /// Представляет абстрактную оболочку неуправляемого класса <see cref="T:vector&lt;T&gt;"/>

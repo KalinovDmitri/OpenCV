@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCV.Core
+namespace OpenCV
 {
     /// <summary>
     /// Позволяет реализующему классу предоставить экземпляр <see cref="OutputArray"/> для передачи в неуправляемые функции OpenCV

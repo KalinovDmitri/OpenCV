@@ -1,7 +1,6 @@
 ﻿using System;
 
-using OpenCV.Core;
-using OpenCV.Core.Enumerations;
+using OpenCV.Enumerations;
 
 namespace OpenCV.Imaging
 {

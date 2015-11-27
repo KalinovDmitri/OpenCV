@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 
-namespace OpenCV.Core.Vectors
+namespace OpenCV.Vectors
 {
     /// <summary>
     /// Представляет управляемую оболочку класса <see cref="T:vector&lt;int&gt;"/>

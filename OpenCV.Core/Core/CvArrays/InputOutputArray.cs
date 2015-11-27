@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCV.Core
+namespace OpenCV
 {
     /// <summary>
     /// Представляет прокси - класс для передачи массивов в качестве входных / выходных параметров в функции OpenCV
