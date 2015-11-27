@@ -21,7 +21,7 @@ namespace OpenCV.Imaging
         {
             get
             {
-                int offset = x << 2 + y << 1;
+                int offset = y * Step + x * 4;
                 return (Color32*)(RawDataPtr + offset);
             }
         }
@@ -38,9 +38,20 @@ namespace OpenCV.Imaging
 
         #region Class methods
 
+        public WinColor GetPixel(int x, int y)
+        {
+            return GetPixelCore(x, y);
+        }
+
         public void SetPixel(int x, int y, WinColor pixelColor)
         {
             SetPixelCore(x, y, ref pixelColor);
+        }
+
+        private unsafe WinColor GetPixelCore(int x, int y)
+        {
+            Color32* pixelPtr = this[x, y];
+            return WinColor.FromArgb(pixelPtr->A, pixelPtr->R, pixelPtr->G, pixelPtr->B);
         }
 
         private unsafe void SetPixelCore(int x, int y, ref WinColor pixelColor)

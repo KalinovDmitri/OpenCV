@@ -16,6 +16,8 @@ namespace OpenCV.Test
                 using (PresentationImage image = new PresentationImage(256, 256))
                 {
                     image.SetPixel(10, 10, Colors.Red);
+
+                    Color pixel = image.GetPixel(10, 10);
                 }
             }
             catch (Exception exc)
