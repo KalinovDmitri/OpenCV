@@ -66,11 +66,13 @@
     <Compile Include="Core\Base\CvString.cs" />
     <Compile Include="Core\CvArrays\EmptyArrayT.cs" />
     <Compile Include="Core\CvArrays\InputArray.cs" />
+    <Compile Include="Core\Imaging\IImage.cs" />
     <Compile Include="Core\PInvoke\CvInvoke.cs" />
     <Compile Include="Core\Base\DisposableObject.cs" />
     <Compile Include="Core\PInvoke\CvInvokeArrays.cs" />
     <Compile Include="Core\PInvoke\CvInvokeConversion.cs" />
     <Compile Include="Core\PInvoke\CvInvokeImaging.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeMat.cs" />
     <Compile Include="Core\PInvoke\NTInvoke.cs" />
     <Compile Include="Core\Base\UnmanagedObject.cs" />
     <Compile Include="Core\Structures\Color32.cs" />
