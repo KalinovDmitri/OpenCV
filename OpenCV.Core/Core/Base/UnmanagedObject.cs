@@ -20,6 +20,10 @@ namespace OpenCV
 
         #region Fields and properties
         /// <summary>
+        /// Значение <see cref="bool"/>, определяющее необходимость автоматического освобождения ресурсов
+        /// </summary>
+        protected readonly bool NeedDispose;
+        /// <summary>
         /// Представляет указатель на неуправляемый объект
         /// </summary>
         protected IntPtr InnerPointer;
@@ -33,7 +37,11 @@ namespace OpenCV
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="UnmanagedObject"/>
         /// </summary>
-        protected internal UnmanagedObject() : base() { }
+        /// <param name="needDispose">Значение <see cref="bool"/>, определяющее необходимость автоматического освобождения ресурсов</param>
+        protected internal UnmanagedObject(bool needDispose) : base()
+        {
+            NeedDispose = needDispose;
+        }
         #endregion
     }
 }

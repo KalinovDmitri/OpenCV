@@ -13,12 +13,12 @@ namespace OpenCV
         /// <summary>
         /// Инициализирует новый пустой экземпляр класса <see cref="InputArray"/>
         /// </summary>
-        public InputArray() : base() { }
+        public InputArray() : base(true) { }
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="InputArray"/> с использованием указателя на неуправляемый массив
         /// </summary>
         /// <param name="arrayPtr">Структура <see cref="IntPtr"/>, представляющая указатель на неуправляемый массив</param>
-        public InputArray(IntPtr arrayPtr) : base()
+        public InputArray(IntPtr arrayPtr) : base(true)
         {
             InnerPointer = arrayPtr;
         }

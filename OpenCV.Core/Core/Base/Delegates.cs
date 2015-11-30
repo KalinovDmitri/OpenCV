@@ -7,7 +7,7 @@ namespace OpenCV
     /// </summary>
     /// <param name="vectorPtr"></param>
     /// <returns></returns>
-    public delegate IntPtr VectorInputArray(IntPtr vectorPtr);
+    public delegate IntPtr VectorArray(IntPtr vectorPtr);
     /// <summary>
     /// Инкапсулирует метод, выполняющий получение начального адреса текущего экземпляра неуправляемого вектора
     /// </summary>

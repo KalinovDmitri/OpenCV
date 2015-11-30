@@ -57,6 +57,7 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Core\Base\DisposableHandle.cs" />
     <Compile Include="Core\CvArrays\CvArray.cs" />
     <Compile Include="Core\CvArrays\IInputArray.cs" />
     <Compile Include="Core\CvArrays\IInputOutputArray.cs" />
@@ -66,6 +67,10 @@
     <Compile Include="Core\Base\CvString.cs" />
     <Compile Include="Core\CvArrays\EmptyArrayT.cs" />
     <Compile Include="Core\CvArrays\InputArray.cs" />
+    <Compile Include="Core\PInvoke\CvInvokeDrawing.cs" />
+    <Compile Include="Enumerations\FontFace.cs" />
+    <Compile Include="Enumerations\ImageEncoding.cs" />
+    <Compile Include="Enumerations\LineType.cs" />
     <Compile Include="Imaging\IImage.cs" />
     <Compile Include="Core\PInvoke\CvInvoke.cs" />
     <Compile Include="Core\Base\DisposableObject.cs" />
@@ -75,9 +80,12 @@
     <Compile Include="Core\PInvoke\CvInvokeMat.cs" />
     <Compile Include="Core\PInvoke\NTInvoke.cs" />
     <Compile Include="Core\Base\UnmanagedObject.cs" />
+    <Compile Include="Imaging\Mat.cs" />
     <Compile Include="Structures\Color32.cs" />
+    <Compile Include="Structures\MCvScalar.cs" />
     <Compile Include="Structures\Point.cs" />
     <Compile Include="Structures\PointF.cs" />
+    <Compile Include="Structures\RotatedRect.cs" />
     <Compile Include="Structures\Size.cs" />
     <Compile Include="Structures\SizeF.cs" />
     <Compile Include="Enumerations\DepthType.cs" />

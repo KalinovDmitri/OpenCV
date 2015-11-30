@@ -56,20 +56,23 @@ namespace OpenCV
 
         #region CvExtern PInvoke importing
 
-        [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
-        internal static extern IntPtr cveStringCreate();
-
-        internal static IntPtr cvStringCreateFromStr(string source)
+        internal static unsafe IntPtr cvStringCreateFromStr(string source)
         {
             byte[] array = Encoding.UTF8.GetBytes(source);
             Array.Resize(ref array, array.Length + 1);
-            //array[array.Length - 1] = 0;
 
-            GCHandle arrayHandle = GCHandle.Alloc(array, GCHandleType.Pinned);
-            IntPtr result = cveStringCreateFromStr(arrayHandle.AddrOfPinnedObject());
-            arrayHandle.Free();
+            IntPtr result = IntPtr.Zero;
+
+            using (DisposableHandle arrayHandle = DisposableHandle.Alloc(array))
+            {
+                result = cveStringCreateFromStr(arrayHandle.Pointer);
+            }
+            
             return result;
         }
+
+        [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern IntPtr cveStringCreate();
 
         [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         internal static extern IntPtr cveStringCreateFromStr(IntPtr strPtr);

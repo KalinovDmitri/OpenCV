@@ -27,7 +27,7 @@ namespace OpenCV
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="CvArray{TDepth}"/>
         /// </summary>
-        protected internal CvArray() : base() { }
+        protected internal CvArray() : base(true) { }
         #endregion
 
         #region Class methods

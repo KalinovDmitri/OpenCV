@@ -6,12 +6,12 @@ using System.Runtime.Serialization;
 namespace OpenCV.Vectors
 {
     /// <summary>
-    /// Представляет управляемую оболочку класса <see cref="T:vector&lt;byte&gt;"/>
+    /// Представляет управляемую оболочку класса <see cref="T:vector&lt;uchar&gt;"/> (byte)
     /// </summary>
     [Serializable, DebuggerTypeProxy(typeof(VectorOfByte.DebuggerProxy))]
     public class VectorOfByte : AbstractVector
     {
-        #region Properties
+        #region Fields and properties
         /// <summary>
         /// Возвращает значение по указанному индексу
         /// </summary>
@@ -23,6 +23,16 @@ namespace OpenCV.Vectors
                 byte result = 0;
                 VectorOfByteGetItem(InnerPointer, index, ref result);
                 return result;
+            }
+            set
+            {
+                unsafe
+                {
+                    IntPtr dataPtr = StartAddress;
+                    byte* dstptr = (byte*)dataPtr;
+                    dstptr += index;
+                    *dstptr = value;
+                }
             }
         }
         #endregion
@@ -46,7 +56,7 @@ namespace OpenCV.Vectors
             Push(values);
         }
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="VectorOfByte"/>, используя указаныне данные сериализации в качестве источника данных
+        /// Инициализирует новый экземпляр класса <see cref="VectorOfByte"/>, используя указанные данные сериализации в качестве источника данных
         /// </summary>
         /// <param name="info">Объект <see cref="SerializationInfo"/>, представляющий данные сериализации</param>
         /// <param name="context">Структура <see cref="StreamingContext"/>, представляющая контекст сериализации</param>
@@ -59,7 +69,7 @@ namespace OpenCV.Vectors
 
         #region Class methods
         /// <summary>
-        /// Помещает указанный массив байтов в конец вектора
+        /// Копирует указанный массив байтов в конец вектора
         /// </summary>
         /// <param name="values">Массив структур <see cref="byte"/>, копируемый в вектор</param>
         public void Push(byte[] values)
@@ -80,9 +90,10 @@ namespace OpenCV.Vectors
             byte[] outputArray = new byte[Size];
             if (outputArray.Length > 0)
             {
-                GCHandle arrayHandle = GCHandle.Alloc(outputArray, GCHandleType.Pinned);
-                VectorOfByteCopyData(InnerPointer, arrayHandle.AddrOfPinnedObject());
-                arrayHandle.Free();
+                using (DisposableHandle arrayHandle = DisposableHandle.Alloc(outputArray))
+                {
+                    VectorOfByteCopyData(InnerPointer, arrayHandle);
+                }
             }
             return outputArray;
         }
@@ -91,7 +102,9 @@ namespace OpenCV.Vectors
         /// </summary>
         protected override void FinalizeCreation()
         {
-            GetAsInputArray = new VectorInputArray(cvInputArrayFromVectorOfByte);
+            GetAsInputArray = new VectorArray(cvInputArrayFromVectorOfByte);
+            GetAsOutputArray = new VectorArray(cvOutputArrayFromVectorOfByte);
+            GetAsInputOutputArray = new VectorArray(cvInputOutputArrayFromVectorOfByte);
             GetSize = new VectorSize(VectorOfByteGetSize);
             GetStartAddress = new VectorStartAddress(VectorOfByteGetStartAddress);
             ClearData = new VectorClear(VectorOfByteClear);
@@ -103,6 +116,12 @@ namespace OpenCV.Vectors
 
         [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         internal static extern IntPtr cvInputArrayFromVectorOfByte(IntPtr vector);
+
+        [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern IntPtr cvOutputArrayFromVectorOfByte(IntPtr vector);
+
+        [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern IntPtr cvInputOutputArrayFromVectorOfByte(IntPtr vector);
 
         [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         internal static extern IntPtr VectorOfByteCreate();
@@ -123,7 +142,7 @@ namespace OpenCV.Vectors
         internal static extern void VectorOfBytePushMulti(IntPtr vector, IntPtr values, int count);
 
         [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
-        internal static extern void VectorOfByteCopyData(IntPtr vector, IntPtr data);
+        internal static extern void VectorOfByteCopyData(IntPtr vector, IntPtr array);
 
         [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         internal static extern void VectorOfByteClear(IntPtr vector);

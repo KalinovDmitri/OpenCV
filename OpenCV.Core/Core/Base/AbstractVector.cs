@@ -5,17 +5,21 @@ namespace OpenCV
     /// <summary>
     /// Представляет абстрактную оболочку неуправляемого класса <see cref="T:vector&lt;T&gt;"/>
     /// </summary>
-    public abstract class AbstractVector : UnmanagedObject, IInputArray
+    public abstract class AbstractVector : UnmanagedObject, IInputArray, IOutputArray, IInputOutputArray
     {
         #region Fields and properties
         /// <summary>
-        /// Представляет значение, определяющее необходимость освобождения занимаемых ресурсов
+        /// Представляет делегат, выполняющий получение указателя на массив <see cref="InputArray"/> для данного вектора
         /// </summary>
-        protected readonly bool NeedDispose;
+        protected VectorArray GetAsInputArray;
         /// <summary>
         /// 
         /// </summary>
-        protected VectorInputArray GetAsInputArray;
+        protected VectorArray GetAsOutputArray;
+        /// <summary>
+        /// 
+        /// </summary>
+        protected VectorArray GetAsInputOutputArray;
         /// <summary>
         /// Представляет делегат, выполняющий получение размера текущего экземпляра вектора
         /// </summary>
@@ -39,7 +43,7 @@ namespace OpenCV
         /// <summary>
         /// Возвращает начальный адрес неуправляемого вектора
         /// </summary>
-        public IntPtr StartAddress => (GetStartAddress != null) ? GetStartAddress(InnerPointer) : IntPtr.Zero;
+        public readonly IntPtr StartAddress;
         #endregion
 
         #region Constructors
@@ -48,12 +52,13 @@ namespace OpenCV
         /// </summary>
         /// <param name="vectorPtr">Структура <see cref="IntPtr"/>, представляющая указатель на неуправляемый вектор</param>
         /// <param name="needDispose">Значение <see cref="bool"/>, определяющее необходимость автоматического освобождения ресурсов</param>
-        protected internal AbstractVector(IntPtr vectorPtr, bool needDispose)
+        protected internal AbstractVector(IntPtr vectorPtr, bool needDispose) : base(needDispose)
         {
             InnerPointer = vectorPtr;
-            NeedDispose = needDispose;
 
             FinalizeCreation();
+
+            StartAddress = (GetStartAddress != null) ? GetStartAddress(InnerPointer) : IntPtr.Zero;
         }
         #endregion
 
@@ -73,6 +78,24 @@ namespace OpenCV
         {
             IntPtr arrayPtr = GetAsInputArray(InnerPointer);
             return new InputArray(arrayPtr);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public OutputArray GetOutputArray()
+        {
+            IntPtr arrayPtr = GetAsOutputArray(InnerPointer);
+            return new OutputArray(arrayPtr);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public InputOutputArray GetInputOutputArray()
+        {
+            IntPtr arrayPtr = GetAsInputOutputArray(InnerPointer);
+            return new InputOutputArray(arrayPtr);
         }
         /// <summary>
         /// Завершает инициализацию текущего экземпляра вектора
