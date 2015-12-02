@@ -37,7 +37,8 @@ namespace OpenCV
 
         public void Offset(int x, int y)
         {
-            Center.x += x; Center.y += y;
+            Center.X += x;
+            Center.Y += y;
         }
 
         public PointF[] GetVertices()

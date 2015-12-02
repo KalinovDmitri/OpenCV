@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCV.Test", "OpenCV.Test\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCV.Imaging", "OpenCV.Imaging\OpenCV.Imaging.csproj", "{6513ADEC-C6E1-49DB-BE28-FC2022B1B0B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCV.Common", "OpenCV.Common\OpenCV.Common.csproj", "{4EF38C56-82A4-4888-AB84-5CF01DE4F70E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,14 @@ Global
 		{6513ADEC-C6E1-49DB-BE28-FC2022B1B0B7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6513ADEC-C6E1-49DB-BE28-FC2022B1B0B7}.Release|x64.ActiveCfg = Release|Any CPU
 		{6513ADEC-C6E1-49DB-BE28-FC2022B1B0B7}.Release|x64.Build.0 = Release|Any CPU
+		{4EF38C56-82A4-4888-AB84-5CF01DE4F70E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EF38C56-82A4-4888-AB84-5CF01DE4F70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EF38C56-82A4-4888-AB84-5CF01DE4F70E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4EF38C56-82A4-4888-AB84-5CF01DE4F70E}.Debug|x64.Build.0 = Debug|Any CPU
+		{4EF38C56-82A4-4888-AB84-5CF01DE4F70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EF38C56-82A4-4888-AB84-5CF01DE4F70E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EF38C56-82A4-4888-AB84-5CF01DE4F70E}.Release|x64.ActiveCfg = Release|Any CPU
+		{4EF38C56-82A4-4888-AB84-5CF01DE4F70E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

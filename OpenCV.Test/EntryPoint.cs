@@ -37,11 +37,11 @@ namespace OpenCV.Test
                 {
                     prImage.WritePixels(pixelsArray);
 
-                    CvInvoke.DrawLine(prImage, new Point(10, 10), new Point(80, 95), color, 1);
+                    /*CvInvoke.DrawLine(prImage, new Point(10, 10), new Point(80, 95), color, 1);
 
                     RotatedRect ellipse = new RotatedRect(new PointF(100.0F, 100.0F), new SizeF(40.0F, 80.0F), 315.0F);
 
-                    CvInvoke.DrawEllipse(prImage, ellipse, color);
+                    CvInvoke.DrawEllipse(prImage, ellipse, color);*/
 
                     FontFace[] faces = new FontFace[]
                     {
@@ -59,12 +59,12 @@ namespace OpenCV.Test
                     {
                         Point drawPoint = new Point(10, 10 + 30 * index);
                         FontFace drawFace = faces[index];
-                        CvInvoke.DrawText(prImage, outputText, drawPoint, drawFace, 0.5D, color, 1);
+                        CvInvoke.DrawText(prImage, outputText, drawPoint, drawFace, 1.0D, color, 1);
                     });
 
                     using (VectorOfByte buffer = new VectorOfByte())
                     {
-                        CvInvoke.Imencode(prImage, buffer, ImageEncoding.Jpeg, new int[1] { 95 });
+                        CvInvoke.Imencode(prImage, buffer, ImageEncoding.Jpeg, new int[] { 95 });
 
                         outputData = buffer.ToArray();
                     }

@@ -57,42 +57,27 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Core\Base\DisposableHandle.cs" />
-    <Compile Include="Core\CvArrays\CvArray.cs" />
-    <Compile Include="Core\CvArrays\IInputArray.cs" />
-    <Compile Include="Core\CvArrays\IInputOutputArray.cs" />
-    <Compile Include="Core\CvArrays\InputOutputArray.cs" />
-    <Compile Include="Core\CvArrays\IOutputArray.cs" />
-    <Compile Include="Core\CvArrays\OutputArray.cs" />
-    <Compile Include="Core\Base\CvString.cs" />
-    <Compile Include="Core\CvArrays\EmptyArrayT.cs" />
-    <Compile Include="Core\CvArrays\InputArray.cs" />
-    <Compile Include="Core\PInvoke\CvInvokeDrawing.cs" />
-    <Compile Include="Enumerations\FontFace.cs" />
-    <Compile Include="Enumerations\ImageEncoding.cs" />
-    <Compile Include="Enumerations\LineType.cs" />
+    <Compile Include="CvArrays\CvArray.cs" />
+    <Compile Include="CvArrays\IInputArray.cs" />
+    <Compile Include="CvArrays\IInputOutputArray.cs" />
+    <Compile Include="CvArrays\InputOutputArray.cs" />
+    <Compile Include="CvArrays\IOutputArray.cs" />
+    <Compile Include="CvArrays\OutputArray.cs" />
+    <Compile Include="Common\CvString.cs" />
+    <Compile Include="CvArrays\EmptyArrayT.cs" />
+    <Compile Include="CvArrays\InputArray.cs" />
+    <Compile Include="Core\CvInvokeDrawing.cs" />
     <Compile Include="Imaging\IImage.cs" />
-    <Compile Include="Core\PInvoke\CvInvoke.cs" />
-    <Compile Include="Core\Base\DisposableObject.cs" />
-    <Compile Include="Core\PInvoke\CvInvokeArrays.cs" />
-    <Compile Include="Core\PInvoke\CvInvokeConversion.cs" />
-    <Compile Include="Core\PInvoke\CvInvokeImaging.cs" />
-    <Compile Include="Core\PInvoke\CvInvokeMat.cs" />
-    <Compile Include="Core\PInvoke\NTInvoke.cs" />
-    <Compile Include="Core\Base\UnmanagedObject.cs" />
+    <Compile Include="Core\CvInvoke.cs" />
+    <Compile Include="Core\CvInvokeArrays.cs" />
+    <Compile Include="Core\CvInvokeConversion.cs" />
+    <Compile Include="Core\CvInvokeImaging.cs" />
+    <Compile Include="Core\CvInvokeMat.cs" />
+    <Compile Include="Core\NTInvoke.cs" />
     <Compile Include="Imaging\Mat.cs" />
-    <Compile Include="Structures\Color32.cs" />
-    <Compile Include="Structures\MCvScalar.cs" />
-    <Compile Include="Structures\Point.cs" />
-    <Compile Include="Structures\PointF.cs" />
     <Compile Include="Structures\RotatedRect.cs" />
-    <Compile Include="Structures\Size.cs" />
-    <Compile Include="Structures\SizeF.cs" />
-    <Compile Include="Enumerations\DepthType.cs" />
-    <Compile Include="Enumerations\IplDepth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\Base\AbstractVector.cs" />
-    <Compile Include="Core\Base\Delegates.cs" />
+    <Compile Include="Common\AbstractVector.cs" />
     <Compile Include="Vectors\VectorOfByte.cs" />
     <Compile Include="Vectors\VectorOfInt.cs" />
   </ItemGroup>
@@ -103,7 +88,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OpenCV.Common\OpenCV.Common.csproj">
+      <Project>{4ef38c56-82a4-4888-ab84-5cf01de4f70e}</Project>
+      <Name>OpenCV.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
