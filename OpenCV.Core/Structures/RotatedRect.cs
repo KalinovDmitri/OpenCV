@@ -5,7 +5,7 @@ namespace OpenCV
     /// <summary>
     /// Представляет управляемый эквивалент структуры CvBox2D
     /// </summary>
-    public struct RotatedRect : IEquatable<RotatedRect>
+    public struct RotatedRect : IConvexPolygonF, IEquatable<RotatedRect>
     {
         #region Static members
         /// <summary>
@@ -16,9 +16,9 @@ namespace OpenCV
 
         #region Operators overloading
         /// <summary>
-        /// 
+        /// Выполняет неявное преобразование указанной структуры <see cref="RectangleF"/> в эквивалентную структуру <see cref="RotatedRect"/>
         /// </summary>
-        /// <param name="rectangle"></param>
+        /// <param name="rectangle">Структура <see cref="RectangleF"/>, на основании которой инициализируется структура <see cref="RotatedRect"/></param>
         public static implicit operator RotatedRect(RectangleF rectangle)
         {
             return new RotatedRect(new PointF(rectangle.X + rectangle.Width * 0.5F, rectangle.Y + rectangle.Height * 0.5F), rectangle.Size, 0.0F);
@@ -41,10 +41,17 @@ namespace OpenCV
         #endregion
 
         #region Constructors
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="center"></param>
+        /// <param name="size"></param>
+        /// <param name="angle"></param>
         public RotatedRect(PointF center, SizeF size, float angle)
         {
-            Center = center; Size = size; Angle = angle;
+            Center = center;
+            Size = size;
+            Angle = angle;
         }
         #endregion
 

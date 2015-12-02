@@ -58,6 +58,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Core\CvInvokeCommon.cs" />
+    <Compile Include="Core\CvInvokeScalar.cs" />
+    <Compile Include="Core\IConvexPolygonF.cs" />
     <Compile Include="CvArrays\CvArray.cs" />
     <Compile Include="CvArrays\IInputArray.cs" />
     <Compile Include="CvArrays\IInputOutputArray.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Core\CvInvokeMat.cs" />
     <Compile Include="Core\NTInvoke.cs" />
     <Compile Include="Core\Mat.cs" />
+    <Compile Include="CvArrays\ScalarArray.cs" />
     <Compile Include="Structures\MCvScalar.cs" />
     <Compile Include="Structures\RotatedRect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

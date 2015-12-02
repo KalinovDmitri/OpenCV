@@ -37,7 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Common\Delegates.cs" />
+    <Compile Include="Common\VectorDelegates.cs" />
     <Compile Include="Common\DisposableHandle.cs" />
     <Compile Include="Common\DisposableObject.cs" />
     <Compile Include="Common\UnmanagedObject.cs" />
@@ -47,6 +47,7 @@
     <Compile Include="Enumerations\IplDepth.cs" />
     <Compile Include="Enumerations\LineType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structures\CircleF.cs" />
     <Compile Include="Structures\Color32.cs" />
     <Compile Include="Structures\Point.cs" />
     <Compile Include="Structures\PointF.cs" />
