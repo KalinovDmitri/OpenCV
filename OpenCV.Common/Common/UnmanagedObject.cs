@@ -9,9 +9,10 @@ namespace OpenCV
     {
         #region Operators overloading
         /// <summary>
-        /// Оператор неявного приведения к указателю на неуправляемый объект
+        /// Выполняет неявное преобразование указанного объекта <see cref="DisposableHandle"/> в эквивалентную структуру <see cref="IntPtr"/>,
+        /// представляющую адрес неуправляемого объекта
         /// </summary>
-        /// <param name="obj">Экземпляр класса <see cref="UnmanagedObject"/></param>
+        /// <param name="obj">Преобразуемый объект <see cref="UnmanagedObject"/></param>
         public static implicit operator IntPtr(UnmanagedObject obj)
         {
             return (obj != null) ? obj.InnerPointer : IntPtr.Zero;
@@ -20,7 +21,7 @@ namespace OpenCV
 
         #region Fields and properties
         /// <summary>
-        /// Значение <see cref="bool"/>, определяющее необходимость автоматического освобождения ресурсов
+        /// Представляет значение, определяющее необходимость автоматического освобождения ресурсов
         /// </summary>
         protected readonly bool NeedDispose;
         /// <summary>

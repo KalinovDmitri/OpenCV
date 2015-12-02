@@ -9,7 +9,36 @@ namespace OpenCV
     public static partial class CvInvoke
     {
         #region Image encoding / decoding
+        /// <summary>
+        /// Выполняет кодирование указанного изображения в целевой формат и возвращает результат в виде массива байтов
+        /// </summary>
+        /// <param name="image">Кодируемое изображение</param>
+        /// <param name="encoding">Значение перечисления <see cref="ImageEncoding"/>, определяющее целевой формат</param>
+        /// <param name="parameters">Необязательные параметры кодирования</param>
+        /// <returns>Массив <see cref="byte"/>, представляющий кодированное изображение</returns>
+        public static byte[] Imencode(IInputArray image, ImageEncoding encoding = ImageEncoding.Jpeg, params int[] parameters)
+        {
+            byte[] result = null;
 
+            string destEncoding = GetEncoding(ref encoding);
+
+            using (VectorOfByte buffer = new VectorOfByte())
+            {
+                Imencode(destEncoding, image, buffer, parameters);
+
+                result = buffer.ToArray();
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Выполняет кодирование указанного изображения в целевой формат
+        /// </summary>
+        /// <param name="image">Кодируемое изображение</param>
+        /// <param name="buffer">Буфер, в который выполняется сохранение</param>
+        /// <param name="encoding">Значение перечисления <see cref="ImageEncoding"/>, определяющее целевой формат</param>
+        /// <param name="parameters">Необязательные параметры кодирования</param>
         public static void Imencode(IInputArray image, VectorOfByte buffer, ImageEncoding encoding = ImageEncoding.Jpeg, params int[] parameters)
         {
             string destEncoding = GetEncoding(ref encoding);

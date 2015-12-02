@@ -3,12 +3,14 @@
 namespace OpenCV
 {
     /// <summary>
-    /// Представляет абстрактную оболочку объекта, предоставляющую возможность освобождения используемых ресурсов
+    /// Представляет абстрактную оболочку объекта, способного к автоматическому освобождению занимаемых ресурсов
     /// </summary>
     public abstract class DisposableObject : IDisposable
     {
         #region Fields
-
+        /// <summary>
+        /// Представляет значение, определяющее, освобождены ли занимаемые объектом ресурсы
+        /// </summary>
         private bool IsDisposed = false;
         #endregion
 
@@ -18,7 +20,7 @@ namespace OpenCV
         /// </summary>
         protected internal DisposableObject() { }
         /// <summary>
-        /// Освобождает ресурсы, занимаемые данным экземпляром класса <see cref="DisposableObject"/>
+        /// Освобождает ресурсы, занимаемые данным экземпляром
         /// </summary>
         ~DisposableObject()
         {
@@ -63,11 +65,11 @@ namespace OpenCV
             }
         }
         /// <summary>
-        /// Выполняет освобождение управляемых ресурсов, занимаемых данным объектом
+        /// Выполняет освобождение управляемых ресурсов, занимаемых данным экземпляром
         /// </summary>
         protected virtual void ReleaseManagedResources() { }
         /// <summary>
-        /// Выполняет освобождение неуправляемых ресурсов, занимаемых данным объектом
+        /// Выполняет освобождение неуправляемых ресурсов, занимаемых данным экземпляром
         /// </summary>
         protected abstract void DisposeObject();
         #endregion

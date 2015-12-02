@@ -20,8 +20,8 @@ namespace OpenCV
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="CvString"/> с помощью указанной строки Unicode
         /// </summary>
-        /// <param name="str">Объект класса <see cref="string"/>, используемый для инициализации</param>
-        public CvString(string str) : base(cvStringCreateFromStr(str), true) { }
+        /// <param name="source">Объект класса <see cref="string"/>, используемый для инициализации</param>
+        public CvString(string source) : base(cvStringCreateFromStr(source), true) { }
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="CvString"/> с помощью указателя на неуправляемую строку
         /// </summary>
@@ -32,7 +32,7 @@ namespace OpenCV
 
         #region Class methods
         /// <summary>
-        /// Завершает инициализацию текущего экземпляра вектора
+        /// Завершает инициализацию текущего экземпляра
         /// </summary>
         protected override void FinalizeCreation()
         {
@@ -56,7 +56,7 @@ namespace OpenCV
 
         #region CvExtern PInvoke importing
 
-        internal static unsafe IntPtr cvStringCreateFromStr(string source)
+        internal static IntPtr cvStringCreateFromStr(string source)
         {
             byte[] array = Encoding.UTF8.GetBytes(source);
             Array.Resize(ref array, array.Length + 1);

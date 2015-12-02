@@ -8,15 +8,15 @@ namespace OpenCV.Enumerations
     public enum LineType
     {
         /// <summary>
-        /// 8 - соединённая
+        /// 8 - соединённая линия
         /// </summary>
         EightConnected = 8,
         /// <summary>
-        /// 4 - соединённая
+        /// 4 - соединённая линия
         /// </summary>
         FourConnected = 4,
         /// <summary>
-        /// Со сглаживанием
+        /// Линия со сглаживанием
         /// </summary>
         AntiAlias = 16
     }

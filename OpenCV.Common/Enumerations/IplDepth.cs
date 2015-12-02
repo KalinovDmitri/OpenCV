@@ -22,11 +22,11 @@ namespace OpenCV.Enumerations
         /// <summary>
         /// Глубина 16 бит без знака (ushort)
         /// </summary>
-        IplDepth16U = 16u,
+        IplDepth_16U = 16u,
         /// <summary>
         /// Глубина 32 бит с плавающей точкой (float)
         /// </summary>
-        IplDepth32F = 32u,
+        IplDepth_32F = 32u,
         /// <summary>
         /// Глубина 8 бит со знаком (sbyte)
         /// </summary>
@@ -34,14 +34,14 @@ namespace OpenCV.Enumerations
         /// <summary>
         /// Глубина 16 бит со знаком (short)
         /// </summary>
-        IplDepth16S = 2147483664u,
+        IplDepth_16S = 2147483664u,
         /// <summary>
         /// Глубина 32 бит со знаком (int)
         /// </summary>
-        IplDepth32S = 2147483680u,
+        IplDepth_32S = 2147483680u,
         /// <summary>
         /// Глубина 64 бит с плавающей точкой (double)
         /// </summary>
-        IplDepth64F = 64u
+        IplDepth_64F = 64u
     }
 }

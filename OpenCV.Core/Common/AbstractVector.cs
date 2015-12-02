@@ -9,41 +9,41 @@ namespace OpenCV
     {
         #region Fields and properties
         /// <summary>
-        /// Представляет делегат, выполняющий получение указателя на массив <see cref="InputArray"/> для данного вектора
+        /// Представляет делегат, выполняющий получение указателя на массив <see cref="InputArray"/> для текущего экземпляра
         /// </summary>
         protected VectorArray GetAsInputArray;
         /// <summary>
-        /// 
+        /// Представляет делегат, выполняющий получение указателя на массив <see cref="OutputArray"/> для текущего экземпляра
         /// </summary>
         protected VectorArray GetAsOutputArray;
         /// <summary>
-        /// 
+        /// Представляет делегат, выполняющий получение указателя на массив <see cref="InputOutputArray"/> для текущего экземпляра
         /// </summary>
         protected VectorArray GetAsInputOutputArray;
         /// <summary>
-        /// Представляет делегат, выполняющий получение размера текущего экземпляра вектора
+        /// Представляет делегат, выполняющий получение количества элементов в неуправляемом векторе
         /// </summary>
         protected VectorSize GetSize;
         /// <summary>
-        /// Представляет делегат, выполняющий получение начального адреса неуправляемого вектора
+        /// Представляет делегат, выполняющий получение адреса первого элемента неуправляемого вектора
         /// </summary>
         protected VectorStartAddress GetStartAddress;
         /// <summary>
-        /// Представляет делегат, выполняющий очистку текущего экземпляра вектора
+        /// Представляет делегат, выполняющий очистку неуправляемого вектора
         /// </summary>
         protected VectorClear ClearData;
         /// <summary>
-        /// Представляет делегат, выполняющий освобождение занимаемых ресурсов
+        /// Представляет делегат, выполняющий освобождение ресурсов, занимаемых неуправляемым вектором
         /// </summary>
         protected VectorRelease Release;
+        /// <summary>
+        /// Возвращает начальный адрес неуправляемого вектора
+        /// </summary>
+        protected internal readonly IntPtr StartAddress;
         /// <summary>
         /// Возвращает текущий размер вектора
         /// </summary>
         public int Size => GetSize(InnerPointer);
-        /// <summary>
-        /// Возвращает начальный адрес неуправляемого вектора
-        /// </summary>
-        public readonly IntPtr StartAddress;
         #endregion
 
         #region Constructors
@@ -64,7 +64,7 @@ namespace OpenCV
 
         #region Class methods
         /// <summary>
-        /// Выполняет удаление всех элементов из текущего экземпляра вектора
+        /// Выполняет удаление всех элементов из текущего экземпляра
         /// </summary>
         public void Clear()
         {
@@ -80,29 +80,29 @@ namespace OpenCV
             return new InputArray(arrayPtr);
         }
         /// <summary>
-        /// 
+        /// Возвращает экземпляр класса <see cref="OutputArray"/> для передачи в неуправляемые функции OpenCV
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Экземпляр класса <see cref="OutputArray"/></returns>
         public OutputArray GetOutputArray()
         {
             IntPtr arrayPtr = GetAsOutputArray(InnerPointer);
             return new OutputArray(arrayPtr);
         }
         /// <summary>
-        /// 
+        /// Возвращает экземпляр класса <see cref="InputOutputArray"/> для передачи в неуправляемые функции OpenCV
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Экземпляр класса <see cref="InputOutputArray"/></returns>
         public InputOutputArray GetInputOutputArray()
         {
             IntPtr arrayPtr = GetAsInputOutputArray(InnerPointer);
             return new InputOutputArray(arrayPtr);
         }
         /// <summary>
-        /// Завершает инициализацию текущего экземпляра вектора
+        /// Завершает инициализацию текущего экземпляра
         /// </summary>
         /// <remarks>
-        /// При переопределении в производном классе в данном методе необходимо инициализировать
-        /// экземпляры делегатов для получения размера и удаления вектора
+        /// При переопределении в производном классе в данном методе необходимо инициализировать экземпляры делегатов
+        /// для обеспечения взаимодействия с неуправляемым вектором
         /// </remarks>
         protected abstract void FinalizeCreation();
         /// <summary>

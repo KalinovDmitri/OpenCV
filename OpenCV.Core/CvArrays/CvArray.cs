@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace OpenCV
 {
     /// <summary>
-    /// Представляет управляемую оболочку для класса CvArr
+    /// Представляет управляемую оболочку для неуправляемого класса CvArr
     /// </summary>
     /// <typeparam name="TDepth">Тип элементов массива</typeparam>
     public abstract class CvArray<TDepth> : UnmanagedObject where TDepth : struct

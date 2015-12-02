@@ -20,10 +20,10 @@ namespace OpenCV
         internal static extern int cveMatGetElementSize(IntPtr mat);
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
-        public static extern Size cveMatGetSize(IntPtr mat);
+        internal static extern Size cveMatGetSize(IntPtr mat);
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int cveMatNumberOfChannels(IntPtr mat);
+        internal static extern int cveMatNumberOfChannels(IntPtr mat);
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr cveMatGetStep(IntPtr mat);
@@ -41,7 +41,7 @@ namespace OpenCV
         internal static extern void cvMatSetTo(IntPtr mat, IntPtr value, IntPtr mask);
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void cveMatRelease(ref IntPtr mat);
+        internal static extern void cveMatRelease(ref IntPtr mat);
         #endregion
     }
 }

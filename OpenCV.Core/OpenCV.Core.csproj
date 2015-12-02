@@ -70,7 +70,7 @@
     <Compile Include="Imaging\IImage.cs" />
     <Compile Include="Core\CvInvoke.cs" />
     <Compile Include="Core\CvInvokeArrays.cs" />
-    <Compile Include="Core\CvInvokeConversion.cs" />
+    <Compile Include="Core\CvInvokeImageConversion.cs" />
     <Compile Include="Core\CvInvokeImaging.cs" />
     <Compile Include="Core\CvInvokeMat.cs" />
     <Compile Include="Core\NTInvoke.cs" />

@@ -29,8 +29,7 @@ namespace OpenCV.Test
                 }
 
                 byte[] outputData = null;
-
-                string outputText = "Output text";
+                
                 MCvScalar color = MCvScalarExtensions.FromColor(Colors.Red);
 
                 using (PresentationImage prImage = new PresentationImage(256, 256))
@@ -57,17 +56,15 @@ namespace OpenCV.Test
 
                     Parallel.For(0, 8, (int index) =>
                     {
-                        Point drawPoint = new Point(10, 10 + 30 * index);
+                        Point drawPoint = new Point(10, 20 + 30 * index);
                         FontFace drawFace = faces[index];
+
+                        string outputText = Enum.GetName(typeof(FontFace), drawFace);
+
                         CvInvoke.DrawText(prImage, outputText, drawPoint, drawFace, 1.0D, color, 1);
                     });
 
-                    using (VectorOfByte buffer = new VectorOfByte())
-                    {
-                        CvInvoke.Imencode(prImage, buffer, ImageEncoding.Jpeg, new int[] { 95 });
-
-                        outputData = buffer.ToArray();
-                    }
+                    outputData = CvInvoke.Imencode(prImage, ImageEncoding.Jpeg, new int[] { 95 });
                 }
 
                 if (outputData != null && outputData.Length > 0)
