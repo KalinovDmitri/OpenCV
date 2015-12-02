@@ -75,6 +75,7 @@
     <Compile Include="Core\CvInvokeMat.cs" />
     <Compile Include="Core\NTInvoke.cs" />
     <Compile Include="Imaging\Mat.cs" />
+    <Compile Include="Structures\MCvScalar.cs" />
     <Compile Include="Structures\RotatedRect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\AbstractVector.cs" />

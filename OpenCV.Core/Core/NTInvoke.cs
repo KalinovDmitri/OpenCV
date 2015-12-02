@@ -21,7 +21,7 @@ namespace OpenCV
             return InternalCopyUnmanagedMemory(dst, src, count);
         }
         /// <summary>
-        /// Выполняет установку блока неуправляемой памяти в указанное значение
+        /// Выполняет заполнение блока неуправляемой памяти указанным значением
         /// </summary>
         /// <param name="dst">Структура <see cref="IntPtr"/>, представляющая указатель на область назначения</param>
         /// <param name="value">Значение <see cref="int"/>, используемое для заполнения области памяти</param>
@@ -56,7 +56,9 @@ namespace OpenCV
         #endregion
 
         #region Private extern definitions
-
+        /// <summary>
+        /// Представляет имя импортируемой библиотеки - ntdll.dll
+        /// </summary>
         private const string ExternLibrary = "ntdll.dll";
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]

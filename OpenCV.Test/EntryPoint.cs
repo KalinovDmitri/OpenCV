@@ -35,13 +35,7 @@ namespace OpenCV.Test
                 using (PresentationImage prImage = new PresentationImage(256, 256))
                 {
                     prImage.WritePixels(pixelsArray);
-
-                    /*CvInvoke.DrawLine(prImage, new Point(10, 10), new Point(80, 95), color, 1);
-
-                    RotatedRect ellipse = new RotatedRect(new PointF(100.0F, 100.0F), new SizeF(40.0F, 80.0F), 315.0F);
-
-                    CvInvoke.DrawEllipse(prImage, ellipse, color);*/
-
+                    
                     FontFace[] faces = new FontFace[]
                     {
                         FontFace.HersheyComplex,
@@ -56,7 +50,7 @@ namespace OpenCV.Test
 
                     Parallel.For(0, 8, (int index) =>
                     {
-                        Point drawPoint = new Point(10, 20 + 30 * index);
+                        Point drawPoint = new Point(10, 30 + 30 * index);
                         FontFace drawFace = faces[index];
 
                         string outputText = Enum.GetName(typeof(FontFace), drawFace);

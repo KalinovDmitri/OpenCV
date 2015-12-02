@@ -48,7 +48,6 @@
     <Compile Include="Enumerations\LineType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structures\Color32.cs" />
-    <Compile Include="Structures\MCvScalar.cs" />
     <Compile Include="Structures\Point.cs" />
     <Compile Include="Structures\PointF.cs" />
     <Compile Include="Structures\Size.cs" />
