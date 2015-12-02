@@ -76,9 +76,10 @@ namespace OpenCV.Vectors
         {
             if (values != null && values.Length > 0)
             {
-                GCHandle valueHandle = GCHandle.Alloc(values, GCHandleType.Pinned);
-                VectorOfBytePushMulti(InnerPointer, valueHandle.AddrOfPinnedObject(), values.Length);
-                valueHandle.Free();
+                using (DisposableHandle valueHandle = DisposableHandle.Alloc(values))
+                {
+                    VectorOfBytePushMulti(InnerPointer, valueHandle, values.Length);
+                }
             }
         }
         /// <summary>
