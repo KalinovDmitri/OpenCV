@@ -57,6 +57,7 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Core\CvInvokeCommon.cs" />
     <Compile Include="CvArrays\CvArray.cs" />
     <Compile Include="CvArrays\IInputArray.cs" />
     <Compile Include="CvArrays\IInputOutputArray.cs" />
@@ -67,14 +68,14 @@
     <Compile Include="CvArrays\EmptyArrayT.cs" />
     <Compile Include="CvArrays\InputArray.cs" />
     <Compile Include="Core\CvInvokeDrawing.cs" />
-    <Compile Include="Imaging\IImage.cs" />
+    <Compile Include="Core\IImage.cs" />
     <Compile Include="Core\CvInvoke.cs" />
     <Compile Include="Core\CvInvokeArrays.cs" />
     <Compile Include="Core\CvInvokeImageConversion.cs" />
     <Compile Include="Core\CvInvokeImaging.cs" />
     <Compile Include="Core\CvInvokeMat.cs" />
     <Compile Include="Core\NTInvoke.cs" />
-    <Compile Include="Imaging\Mat.cs" />
+    <Compile Include="Core\Mat.cs" />
     <Compile Include="Structures\MCvScalar.cs" />
     <Compile Include="Structures\RotatedRect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +101,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

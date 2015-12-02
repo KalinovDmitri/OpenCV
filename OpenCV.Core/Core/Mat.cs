@@ -2,7 +2,7 @@
 
 using OpenCV.Enumerations;
 
-namespace OpenCV.Imaging
+namespace OpenCV
 {
     /// <summary>
     /// Представляет управляемую оболочку для неуправляемого класса cv::Mat
@@ -45,6 +45,10 @@ namespace OpenCV.Imaging
         {
             Create(rows, cols, depthType, channels);
         }
+
+        public Mat(int rows, int cols, DepthType type, int channels, IntPtr data, int step) :
+            this(CvInvoke.cveMatCreateWithData(rows, cols, CvInvoke.MakeType(type, channels), data, new IntPtr(step)), true)
+        { }
         #endregion
 
         #region IImage implementation

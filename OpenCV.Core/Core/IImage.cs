@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCV.Imaging
+namespace OpenCV
 {
     /// <summary>
     /// Предоставляет способы взаимодействия с изображением, загруженным в память

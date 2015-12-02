@@ -50,6 +50,8 @@
     <Compile Include="Structures\Color32.cs" />
     <Compile Include="Structures\Point.cs" />
     <Compile Include="Structures\PointF.cs" />
+    <Compile Include="Structures\Rectangle.cs" />
+    <Compile Include="Structures\RectangleF.cs" />
     <Compile Include="Structures\Size.cs" />
     <Compile Include="Structures\SizeF.cs" />
   </ItemGroup>

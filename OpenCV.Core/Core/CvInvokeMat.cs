@@ -14,6 +14,9 @@ namespace OpenCV
         internal static extern void cveMatCreateData(IntPtr mat, int rows, int cols, int type);
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern IntPtr cveMatCreateWithData(int rows, int cols, int type, IntPtr data, IntPtr step);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr cveMatGetDataPointer(IntPtr mat);
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
