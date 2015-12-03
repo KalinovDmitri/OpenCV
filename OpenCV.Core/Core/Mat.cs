@@ -87,6 +87,25 @@ namespace OpenCV
             int matType = CvInvoke.MakeType(depthType, channels);
             CvInvoke.cveMatCreateData(InnerPointer, rows, cols, matType);
         }
+
+        public void SetTo(MCvScalar value, IInputArray mask = null)
+        {
+            using (ScalarArray scalar = value)
+            {
+                SetTo(scalar, mask);
+            }
+        }
+
+        public void SetTo(IInputArray value, IInputArray mask = null)
+        {
+            using (InputArray valueArray = value.GetInputArray())
+            {
+                using (InputArray maskArray = (mask != null) ? mask.GetInputArray() : EmptyArray<InputArray>.Value)
+                {
+                    CvInvoke.cvMatSetTo(InnerPointer, valueArray, maskArray);
+                }
+            }
+        }
         #endregion
     }
 }

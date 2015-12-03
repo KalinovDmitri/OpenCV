@@ -9,6 +9,42 @@ namespace OpenCV
     {
         #region Public methods
 
+        public static void DrawCircle(IInputOutputArray image,
+            Point center,
+            int radius,
+            MCvScalar color,
+            int thickness = 1,
+            LineType lineType = LineType.EightConnected,
+            int shift = 0)
+        {
+            using (InputOutputArray array = image.GetInputOutputArray())
+            {
+                cveCircle(array, ref center, radius, ref color, thickness, lineType, shift);
+            }
+        }
+
+        public static void DrawContours(IInputOutputArray image,
+            IInputArray contours,
+            int contourIdx,
+            MCvScalar color,
+            int thickness = 1,
+            LineType lineType = LineType.EightConnected,
+            IInputArray hierarchy = null,
+            int maxLevel = int.MaxValue,
+            Point offset = default(Point))
+        {
+            using (InputOutputArray imageArray = image.GetInputOutputArray())
+            {
+                using (InputArray contoursArray = contours.GetInputArray())
+                {
+                    using (InputArray hierarchyArray = (hierarchy != null) ? hierarchy.GetInputArray() : EmptyArray<InputArray>.Value)
+                    {
+                        cveDrawContours(imageArray, contoursArray, contourIdx, ref color, thickness, lineType, hierarchyArray, maxLevel, ref offset);
+                    }
+                }
+            }
+        }
+
         public static void DrawEllipse(IInputOutputArray image,
             RotatedRect box,
             MCvScalar color,
@@ -78,6 +114,15 @@ namespace OpenCV
         #region PInvoke & private methods
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        private static extern void cveCircle(IntPtr imagePtr,
+            ref Point center,
+            int radius,
+            ref MCvScalar color,
+            int thickness,
+            LineType lineType,
+            int shift);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         private static extern void cveEllipse(IntPtr imagePtr,
             ref Point center,
             ref Size axes,
@@ -88,6 +133,17 @@ namespace OpenCV
             int thickness,
             LineType lineType,
             int shift);
+
+        [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        private static extern void cveDrawContours(IntPtr imagePtr,
+            IntPtr contourPtr,
+            int coutourIdx,
+            ref MCvScalar color,
+            int thickness,
+            LineType lineType,
+            IntPtr hierarchy,
+            int maxLevel,
+            ref Point offset);
 
         [DllImport(ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         private static extern void cveLine(IntPtr imagePtr,

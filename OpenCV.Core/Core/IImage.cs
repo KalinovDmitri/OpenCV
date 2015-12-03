@@ -24,7 +24,9 @@ namespace OpenCV
 
         #region Methods
 
+        void SetTo(MCvScalar value, IInputArray mask = null);
 
+        void SetTo(IInputArray value, IInputArray mask = null);
         #endregion
     }
 }

@@ -81,6 +81,16 @@ namespace OpenCV.Imaging
 
         #region Class methods
 
+        public void SetTo(MCvScalar value, IInputArray mask = null)
+        {
+            InnerImage.SetTo(value, mask);
+        }
+
+        public void SetTo(IInputArray value, IInputArray mask = null)
+        {
+            InnerImage.SetTo(value, mask);
+        }
+
         public WinColor GetPixel(int x, int y)
         {
             return GetPixelCore(x, y);
