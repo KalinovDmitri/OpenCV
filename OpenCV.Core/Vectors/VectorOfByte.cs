@@ -29,9 +29,9 @@ namespace OpenCV.Vectors
                 unsafe
                 {
                     IntPtr dataPtr = StartAddress;
-                    byte* dstptr = (byte*)dataPtr;
-                    dstptr += index;
-                    *dstptr = value;
+                    byte* dstPtr = (byte*)dataPtr;
+                    dstPtr += index;
+                    *dstPtr = value;
                 }
             }
         }
