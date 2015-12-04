@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace OpenCV
 {
     /// <summary>
     /// Представляет абстрактную оболочку неуправляемого класса <see cref="T:vector&lt;T&gt;"/>
     /// </summary>
-    public abstract class AbstractVector : UnmanagedObject, IInputArray, IOutputArray, IInputOutputArray
+    public abstract class AbstractVector : UnmanagedObject, IInputArray, IOutputArray, IInputOutputArray, ISerializable
     {
         #region Fields and properties
         /// <summary>
@@ -43,7 +45,7 @@ namespace OpenCV
         /// <summary>
         /// Возвращает текущий размер вектора
         /// </summary>
-        public int Size => GetSize(InnerPointer);
+        public int Count => GetSize(InnerPointer);
         #endregion
 
         #region Constructors
@@ -63,6 +65,12 @@ namespace OpenCV
         #endregion
 
         #region Class methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public abstract void GetObjectData(SerializationInfo info, StreamingContext context);
         /// <summary>
         /// Выполняет удаление всех элементов из текущего экземпляра
         /// </summary>

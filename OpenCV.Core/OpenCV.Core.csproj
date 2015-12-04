@@ -57,6 +57,8 @@
     <DocumentationFile>..\Bin\Release\OpenCV.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common\AbstractVectorT.cs" />
+    <Compile Include="Common\VectorOfByte.cs" />
     <Compile Include="Core\CvInvokeCommon.cs" />
     <Compile Include="Core\CvInvokeScalar.cs" />
     <Compile Include="Core\IConvexPolygonF.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Common\AbstractVector.cs" />
     <Compile Include="Vectors\VectorOfByte.cs" />
     <Compile Include="Vectors\VectorOfInt.cs" />
+    <Compile Include="Vectors\VectorOfPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

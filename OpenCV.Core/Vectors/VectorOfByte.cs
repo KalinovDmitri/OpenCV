@@ -8,7 +8,7 @@ namespace OpenCV.Vectors
     /// <summary>
     /// Представляет управляемую оболочку класса <see cref="T:vector&lt;uchar&gt;"/> (byte)
     /// </summary>
-    [Serializable, DebuggerTypeProxy(typeof(VectorOfByte.DebuggerProxy))]
+    [Serializable, DebuggerTypeProxy(typeof(DebuggerProxy))]
     public class VectorOfByte : AbstractVector
     {
         #region Fields and properties
@@ -69,6 +69,16 @@ namespace OpenCV.Vectors
 
         #region Class methods
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            byte[] array = ToArray();
+            info.AddValue("ByteArray", array);
+        }
+        /// <summary>
         /// Копирует указанный массив байтов в конец вектора
         /// </summary>
         /// <param name="values">Массив структур <see cref="byte"/>, копируемый в вектор</param>
@@ -88,7 +98,7 @@ namespace OpenCV.Vectors
         /// <returns>Массив структур <see cref="byte"/></returns>
         public byte[] ToArray()
         {
-            byte[] outputArray = new byte[Size];
+            byte[] outputArray = new byte[Count];
             if (outputArray.Length > 0)
             {
                 using (DisposableHandle arrayHandle = DisposableHandle.Alloc(outputArray))
@@ -138,6 +148,9 @@ namespace OpenCV.Vectors
 
         [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         internal static extern IntPtr VectorOfByteGetStartAddress(IntPtr vector);
+
+        [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern void VectorOfBytePush(IntPtr vector, ref byte value);
 
         [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         internal static extern void VectorOfBytePushMulti(IntPtr vector, IntPtr values, int count);

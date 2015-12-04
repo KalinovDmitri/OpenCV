@@ -30,7 +30,8 @@ namespace OpenCV.Test
 
                 byte[] outputData = null;
                 
-                MCvScalar color = MCvScalarExtensions.FromColor(Colors.Red);
+                MCvScalar redColor = MCvScalarExtensions.FromColor(Colors.Red);
+                MCvScalar greenColor = MCvScalarExtensions.FromColor(Colors.Green);
 
                 using (PresentationImage prImage = new PresentationImage(256, 256))
                 {
@@ -55,9 +56,9 @@ namespace OpenCV.Test
 
                         string outputText = Enum.GetName(typeof(FontFace), drawFace);
 
-                        CvInvoke.DrawText(prImage, outputText, drawPoint, drawFace, 1.0D, color, 1);
+                        CvInvoke.DrawText(prImage, outputText, drawPoint, drawFace, 1.0D, redColor, 1);
                     });
-
+                    
                     outputData = CvInvoke.Imencode(prImage, ImageEncoding.Jpeg, new int[] { 95 });
                 }
 

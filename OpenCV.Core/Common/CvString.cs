@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Text;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 
 namespace OpenCV
 {
@@ -18,7 +19,7 @@ namespace OpenCV
         /// </summary>
         public CvString() : base(cveStringCreate(), true) { }
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="CvString"/> с помощью указанной строки Unicode
+        /// Инициализирует новый экземпляр класса <see cref="CvString"/> с помощью указанной строки символов Unicode
         /// </summary>
         /// <param name="source">Объект класса <see cref="string"/>, используемый для инициализации</param>
         public CvString(string source) : base(cvStringCreateFromStr(source), true) { }
@@ -38,6 +39,16 @@ namespace OpenCV
         {
             GetSize = new VectorSize(cveStringGetLength);
             Release = new VectorRelease(cveStringRelease);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            string data = ToString();
+            info.AddValue("String", data);
         }
         /// <summary>
         /// Преобразует данный экземпляр в объект класса <see cref="string"/>

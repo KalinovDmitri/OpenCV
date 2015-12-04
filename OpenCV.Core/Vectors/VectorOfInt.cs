@@ -8,10 +8,15 @@ namespace OpenCV.Vectors
     /// <summary>
     /// Представляет управляемую оболочку класса <see cref="T:vector&lt;int&gt;"/>
     /// </summary>
+    [Serializable, DebuggerTypeProxy(typeof(DebuggerProxy))]
     public class VectorOfInt : AbstractVector
     {
         #region Properties
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public int this[int index]
         {
             get
@@ -51,9 +56,25 @@ namespace OpenCV.Vectors
         {
             Push(values);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public VectorOfInt(SerializationInfo info, StreamingContext context) : this()
+        {
+            int[] values = info.GetValue("IntArray", typeof(int[])) as int[];
+            Push(values);
+        }
         #endregion
 
         #region Class methods
+
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            int[] array = ToArray();
+            info.AddValue("IntArray", array);
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -62,9 +83,10 @@ namespace OpenCV.Vectors
         {
             if (values != null && values.Length > 0)
             {
-                GCHandle valueHandle = GCHandle.Alloc(values, GCHandleType.Pinned);
-                VectorOfIntPushMulti(InnerPointer, valueHandle.AddrOfPinnedObject(), values.Length);
-                valueHandle.Free();
+                using (DisposableHandle valueHandle = DisposableHandle.Alloc(values))
+                {
+                    VectorOfIntPushMulti(InnerPointer, valueHandle, values.Length);
+                }
             }
         }
         /// <summary>
@@ -73,7 +95,7 @@ namespace OpenCV.Vectors
         /// <returns></returns>
         public int[] ToArray()
         {
-            int[] outputArray = new int[Size];
+            int[] outputArray = new int[Count];
             if (outputArray.Length > 0)
             {
                 using (DisposableHandle arrayHandle = DisposableHandle.Alloc(outputArray))
@@ -135,6 +157,21 @@ namespace OpenCV.Vectors
 
         [DllImport(CvInvoke.ExternLibrary, CallingConvention = CallingConvention.Cdecl)]
         internal static extern void VectorOfIntRelease(ref IntPtr vector);
+        #endregion
+
+        #region Nested types
+
+        internal class DebuggerProxy
+        {
+            private VectorOfInt SourceVector;
+
+            public int[] Values => SourceVector.ToArray();
+
+            public DebuggerProxy(VectorOfInt vector)
+            {
+                SourceVector = vector;
+            }
+        }
         #endregion
     }
 }
